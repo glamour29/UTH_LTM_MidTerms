@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS Modules -->
+    <link rel="stylesheet" href="/css/variables.css" />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/game.css" />
+    <link rel="stylesheet" href="/css/join.css" />
+    <link rel="stylesheet" href="/css/responsive.css" />
+    <script type="module" src="/js/main.js"></script>
+    <title>Trò chơi Kéo Búa Bao - Multiplayer Game</title>
+  </head>
+  <body>
+    <section class="container">
+      <header class="header">
+        <img src="/images/logo.png" alt="logo" />
+
+        <div class="scores-container">
+          <div class="score score--you">
+            <p class="score__title">BẠN</p>
+            <p class="score__number" id="score-you">0</p>
+          </div>
+          <div class="score score--oppo">
+            <p class="score__title">ĐỐI THỦ</p>
+            <p class="score__number" id="score-oppo">0</p>
+          </div>
+        </div>
+      </header>
+      
+      <div class="room-id-badge" id="room-id-badge" style="display: none;">
+        <span class="room-id-label">Phòng:</span>
+        <span class="room-id-value" id="room-id-value">-</span>
+      </div>
+
+      <div class="to__center">
+        <section class="main">
+          <button class="choice__paper" onclick="clickChoice('paper')">
+            <div class="choice">
+              <img src="/images/paper.png" alt="Paper" class="choice__img" />
+            </div>
+          </button>
+
+          <button class="choice__scissor" onclick="clickChoice('scissors')">
+            <div class="choice">
+              <img src="/images/scissors.png" alt="Scissor" class="choice__img" />
+            </div>
+          </button>
+
+          <button class="choice__rock" onclick="clickChoice('rock')">
+            <div class="choice">
+              <img src="/images/rock.png" alt="Rock" class="choice__img" />
+            </div>
+          </button>
+        </section>
+      </div>
+
+
+      <!--Results Page-->
+      <section class="result__board">
+        <h2 class="your__result">BẠN ĐÃ CHỌN</h2>
+
+        <h2 class="opponents__result">Đang chọn...</h2>
+
+        <div class="your__choice"></div>
+
+        <div class="results">
+          <h2 class="results__heading">Bạn thua</h2>
+          <button class="results__button" onclick="playAgain()">
+            Chơi lại
+          </button>
+        </div>
+
+        <div class="oppo__choice waiting_to_chose"></div>
+      </section>
+    </section>
+
+    <footer class="footer">
+      <button class="rules__button" id="rules-btn">Luật chơi</button>
+      <button class="exit__btn" onclick="exitGame()">Thoát</button>
+    </footer>
+
+    <!-- join page -->
+    <section class="join">
+      <div class="join__container">
+        <img src="/images/logo.png" alt="LOGO" />
+        <div class="join__options">
+          <button class="create_room" onclick="createRoom()">
+            Tạo phòng
+          </button>
+
+          <div class="room-id-display" id="room-id-display" style="display: none;">
+            <p class="room-id-label">Mã phòng của bạn:</p>
+            <div class="room-id-container">
+              <input type="text" id="created-room-id" readonly />
+              <button class="copy-btn" onclick="copyRoomId()">📋</button>
+            </div>
+            <p class="room-id-hint">Chia sẻ mã này với bạn của bạn!</p>
+          </div>
+          
+          <div class="join__input-group">
+            <input type="text" placeholder="Nhập mã phòng" id="room-id" />
+            <button class="join__room" onclick="joinRoom()">Vào phòng</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+     <!---Rules Page-->
+     <section class="rules">
+      <div class="rules__container">
+        <header class="rules__header">
+          <h2 class="rules__title">Luật chơi</h2>
+          <img src="/images/icon-close.svg" alt="Đóng" class="close-btn" />
+        </header>
+
+        <img src="/images/rules.png" alt="rules" class="rules__img" />
+      </div>
+    </section>
+
+    <script src="/socket.io/socket.io.js"></script>
+  </body>
+</html>
