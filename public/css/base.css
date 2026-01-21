@@ -1,0 +1,80 @@
+/* ============================================
+   BASE STYLES - RESET & LAYOUT
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  font-family: "Be Vietnam Pro", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  position: relative;
+  height: 100vh;
+  background: #0d1117;
+  overflow: hidden;
+}
+
+/* Thêm pattern background độc đáo */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 71, 87, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 40% 20%, rgba(83, 82, 237, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 212, 255, 0.02) 2px,
+      rgba(0, 212, 255, 0.02) 4px
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1.5rem;
+  height: 100%;
+  max-width: 750px;
+  z-index: 1;
+}
+
+/* Utility Classes */
+.grid {
+  display: grid;
+}
+
+.flex {
+  display: flex;
+}
+
+.none {
+  display: none;
+}
+
+.block {
+  display: block;
+}

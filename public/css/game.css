@@ -1,0 +1,353 @@
+/* ============================================
+   GAME RESULT BOARD STYLES
+   ============================================ */
+
+.result__board {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  place-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+    "your-text .  oppo-text"
+    "your-choice . oppo-choice";
+  height: fit-content;
+  gap: 4rem;
+  max-width: 1000px;
+  margin: 2.5rem auto;
+  width: 90%;
+  z-index: 5;
+}
+
+.your__result {
+  grid-area: your-text;
+  z-index: 1;
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.1rem;
+}
+
+.opponents__result {
+  grid-area: oppo-text;
+  z-index: 1;
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.1rem;
+}
+
+.your__choice {
+  grid-area: your-choice;
+}
+
+.oppo__choice {
+  grid-area: oppo-choice;
+}
+
+/* Place holder for waiting */
+.waiting_to_chose {
+  height: 12rem;
+  width: 12rem;
+  aspect-ratio: 1/1;
+  background-color: #16213e;
+  border: 3px dashed #4a5568;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+  flex-shrink: 0;
+  margin: 0 auto;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Increase size after choosing */
+.increase-size {
+  scale: 1.2;
+}
+
+/* Result grid after both players choice */
+.after-choosing {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+    "your-text results oppo-text"
+    "your-choice results oppo-choice";
+  margin: 3rem auto;
+}
+
+/* Results section */
+.results {
+  grid-area: results;
+  display: none;
+  place-items: center;
+}
+
+.results__heading {
+  display: block;
+  text-align: center;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.results__button {
+  display: block;
+  background: linear-gradient(135deg, rgba(13, 17, 23, 0.9) 0%, rgba(22, 27, 34, 0.9) 100%);
+  padding: 0.8rem 4rem;
+  border-radius: 16px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.25rem;
+  cursor: pointer;
+  border: 2px solid #58a6ff;
+  color: #58a6ff;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 4px 15px rgba(88, 166, 255, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.results__button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(88, 166, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.results__button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.results__button:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 6px 20px rgba(88, 166, 255, 0.5),
+    0 0 30px rgba(88, 166, 255, 0.3);
+  background: linear-gradient(135deg, rgba(88, 166, 255, 0.15) 0%, rgba(13, 17, 23, 0.9) 100%);
+  border-color: #79c0ff;
+}
+
+.result__board > * {
+  color: #ffffff !important;
+  letter-spacing: 0.1rem;
+  font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.result__board h2 {
+  color: #ffffff !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  font-weight: 700;
+}
+
+/* Fix result board choice display */
+.your__choice,
+.oppo__choice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.your__choice .choice__img,
+.oppo__choice .choice__img {
+  height: 70px !important;
+}
+
+.your__choice .choice__paper,
+.your__choice .choice__rock,
+.your__choice .choice__scissor,
+.oppo__choice .choice__paper,
+.oppo__choice .choice__rock,
+.oppo__choice .choice__scissor {
+  height: 160px !important;
+  border-width: 16px !important;
+}
+
+/* Reduce scale for result board */
+.increase-size {
+  scale: 1.2 !important;
+}
+
+
+/* display  grif*/
+
+.results {
+
+  grid-area: results;
+
+  display: none;
+
+  place-items: center;
+
+}
+
+
+
+.results__heading {
+
+  display: block;
+
+  text-align: center;
+
+  font-size: 2.5rem;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.5rem;
+
+  padding-bottom: 1.5rem;
+
+}
+
+
+
+.results__button {
+
+  display: block;
+
+  background: linear-gradient(135deg, rgba(13, 17, 23, 0.9) 0%, rgba(22, 27, 34, 0.9) 100%);
+
+  padding: 0.8rem 4rem;
+
+  border-radius: 16px;
+
+  text-transform: uppercase;
+
+  font-size: 0.85rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.25rem;
+
+  cursor: pointer;
+
+  border: 2px solid #58a6ff;
+
+  color: #58a6ff;
+
+  transition: all 0.3s ease;
+
+  box-shadow: 
+
+    0 4px 15px rgba(88, 166, 255, 0.3),
+
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  position: relative;
+
+  overflow: hidden;
+
+}
+
+
+
+.results__button::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+
+  left: 50%;
+
+  width: 0;
+
+  height: 0;
+
+  border-radius: 50%;
+
+  background: rgba(88, 166, 255, 0.3);
+
+  transform: translate(-50%, -50%);
+
+  transition: width 0.6s, height 0.6s;
+
+}
+
+
+
+.results__button:hover::before {
+
+  width: 300px;
+
+  height: 300px;
+
+}
+
+
+
+.results__button:hover {
+
+  transform: translateY(-2px);
+
+  box-shadow: 
+
+    0 6px 20px rgba(88, 166, 255, 0.5),
+
+    0 0 30px rgba(88, 166, 255, 0.3);
+
+  background: linear-gradient(135deg, rgba(88, 166, 255, 0.15) 0%, rgba(13, 17, 23, 0.9) 100%);
+
+  border-color: #79c0ff;
+
+}
+
+
+
+.result__board > * {
+
+  color: #ffffff !important;
+
+  letter-spacing: 0.1rem;
+
+  font-weight: 600;
+
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+
+}
+
+
+
+.result__board h2 {
+
+  color: #ffffff !important;
+
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+
+  font-weight: 700;
+
+}
+
+
+
+.join {
+
+  display: flex;
+
+  place-items: center;
+
+}

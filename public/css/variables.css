@@ -1,0 +1,21 @@
+/* ============================================
+   CSS VARIABLES
+   ============================================ */
+
+:root {
+  --light-text: #f5f5f5;
+  --dark-text: #2c3e50;
+  --score-text: #3498db;
+  --header-outline: #7f8c8d;
+  --from-rock: #e74c3c;
+  --to-rock: #c0392b;
+  --from-paper: #3498db;
+  --to-paper: #2980b9;
+  --from-scissor: #f39c12;
+  --to-scissor: #e67e22;
+  --shadow-light: rgba(0, 0, 0, 0.15);
+  --shadow-dark: rgba(0, 0, 0, 0.3);
+  --bg-dark: rgba(44, 62, 80, 0.85);
+  --primary-bg: #2c3e50;
+  --secondary-bg: #34495e;
+}
